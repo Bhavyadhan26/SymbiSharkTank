@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+</head>
+<body>
+    <div class="image">
+        <img src="{% static 'media/img/login.jpg' %}" alt="hey">
+    </div>
+    
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <!-- <input type="hidden" name="next" value="{{ request.GET.next }}"> -->
+    <div class="main">
+        <div class="userImage">
+            <h1>SYMBI SHARK TANK</h1>
+        </div>
+        
+        <div class="user_input">
+            <input type="email" id="user" name="user" placeholder="Email" required />
+        </div>
+        <div class="password_input">
+            <input type="password" id="pass" name="pass" placeholder="Password" required/>
+        </div>
+        <div class="show_or_hide">
+            <button type="button" id="show_pass" onclick="togglePassword();">Show</button>
+            <button type="button" id="hide_pass" onclick="togglePassword();" style="display: none;">Hide</button>
+        </div>
+        <div class="login_box">
+            <button type="submit" class="login_button">Login</button>
+        </div>
+        </form>
+        <div class="signup_box">
+            <!-- <a href="signup.html">Don't have an account? SignUp</a> -->
+            <a href="{% url 'signup' %}">Don't have an account? Signup here.</a>
+        </div>
+    </div>
+    <script>
+        function togglePassword() {
+            var x = document.getElementById("pass");
+            var showButton = document.getElementById("show_pass");
+            var hideButton = document.getElementById("hide_pass");
+            if (x.type === "password") {
+                x.type = "text";
+                showButton.style.display = "none";
+                hideButton.style.display = "block";
+            } else {
+                x.type = "password";
+                showButton.style.display = "block";
+                hideButton.style.display = "none";
+            }
+        }
+        </script>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+        var emailInput = document.getElementById('user');
+        var emailError = document.getElementById('email-error');
+        var email = emailInput.value;
+        
+        // Email validation
+        if (!isValidEmail(email)) {
+            event.preventDefault(); // Prevent form submission
+            emailError.innerText = 'Please enter a valid email address.';
+            emailInput.focus();
+            return;
+        } else {
+            emailError.innerText = ''; // Clear error message
+        }
+    });
+
+    // Function to validate email address format
+    function isValidEmail(email) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+</script>
+<script>
+    var errorOccurred = {{ error_occurred|yesno:"true,false" }}; // Pass boolean variable to JavaScript
+    // Check if errorOccurred is true indicating actual error messages
+    if (errorOccurred) {
+        window.alert("Wrong email id or password");
+    }
+</script>
+</body>
+</html>

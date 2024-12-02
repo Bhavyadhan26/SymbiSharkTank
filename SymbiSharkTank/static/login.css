@@ -1,0 +1,152 @@
+.image {
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 600px;
+    border-radius: 15px;
+    border: 2px solid #2a405f;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    padding: 10px; /* Add padding for spacing */
+    transition: transform 0.3s ease;
+}
+
+.image:hover {
+    transform: translateY(-5px); /* Add slight upward translation on hover */
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #162a48;
+    min-height: 100vh;
+}
+
+.main {
+    width: 100%;
+    max-width: 400px;
+    padding: 38px;
+    background-color: #162a48;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #fff;
+    text-decoration: underline;
+    margin: 0 auto;
+}
+
+.main h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.userImage h1 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.user_input,
+.password_input {
+    margin-bottom: 20px;
+}
+
+.user_input input,
+.password_input input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    outline: none;
+    background-color: #162a48;
+    color: white;
+}
+
+.login_box,
+.signup_box {
+    text-align: center;
+}
+
+.login_button {
+    height: 40px;
+    width: 120px;
+    background: linear-gradient(to bottom, #2a405f, #2a405f);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.login_button:hover {
+    background: linear-gradient(to bottom, #fff, #2a405f);
+    transform: translateY(2px);
+    color: #162a48;
+}
+
+.signup_box a {
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.show_or_hide {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+}
+
+#show_pass,
+#hide_pass {
+    height: 30px;
+    width: 70px;
+    background-color: #2a405f;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+#show_pass:hover,
+#hide_pass:hover {
+    background-color: #fff;
+    transform: translateY(2px);
+    color: #162a48;
+}
+
+.popup {
+    position: absolute;
+    height: 200px;
+    width: 350px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.popup h2 {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px;
+}
+
+.popup {
+    display: none;
+}
+

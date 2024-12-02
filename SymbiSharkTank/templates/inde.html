@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <script>
+        $(function() {  
+            $.widget("iP.myButton", {
+                _create: function() { 
+                  this._button = $("<button>");
+                    this._button.text("My first Widget Button");
+                  this._button.width(this.options.width) 
+                  this._button.css("background-color", this.options.color);    
+                  this._button.css("position", "absolute");   
+                  this._button.css("left", "100px");            
+                  $(this.element).append(this._button);
+               },
+               _setOption: function(key, value) { 
+                  switch (key) { 
+                     case "width": 
+                     this._button.width(value); 
+                     break; 
+                    
+                  }} 
+               
+            });
+            $("#button1").myButton();
+            $("#button1").myButton("option", {width : 200});
+            
+         });
+      </script>
+   </head>
+   
+   <body>
+      <div id = "button1"></div>
+   </body>
+</html>
+

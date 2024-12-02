@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    
+    <div class="image">
+        <img src="{% static 'media/img/login.jpg' %}" alt="Signup">
+    </div>
+    
+    <form method="post" action="{% url 'signup' %}" onsubmit="return validateForm()">
+        {% csrf_token %}
+    <div class="main">
+        <div class="userImage">
+            <h1>SYMBI SHARK TANK</h1>
+        </div>
+        <div class="user_input">
+            <input type="text" id="first_name" name="first_name" placeholder="First Name" required />
+        </div>
+        <div class="password_input">
+            <input type="text" id="last_name" name="last_name" placeholder="Last Name" required />
+        </div>
+        <div class="user_input">
+            <input type="email" id="email" placeholder="Email" name="email" required />
+            <span id="emailError" style="color: red;"></span>
+        </div>
+        <div class="password_input">
+            <input type="text" id="contact_number" name="contact_number" placeholder="Contact Number" pattern="[1-9][0-9]{9}" required />
+            <span id="contactNumberError" style="color: red;"></span>
+        </div>
+        <div class="password_input">
+            <input type="password" id="password" name="password" placeholder="Password" autocomplete="off" required />
+        </div>
+        <div class="password_input">
+            <input type="password" id="confirm_password" name="confirm_password" autocomplete="off" placeholder="Confirm Password" required />
+            <span id="passwordMatchError" style="color: red;"></span>
+        </div>
+        <div class="show_or_hide">
+            <button type="button" id="show_pass" onclick="togglePassword();"> Show
+            </button>
+            <button type="button" id="hide_pass" style="display: none;" onclick="togglePassword();"> Hide
+            </button>
+        </div>
+        {% if error_message %}
+            <div class="error-message">{{ error_message }}</div>
+        {% endif %}
+        <div class="login_box">
+            <button type="submit" class="login_button"> Signup
+            </button>
+        </div>
+    </form>
+        <div class="signup_box">
+            <a href="{% url 'login' %}">Already have an account? Login</a>
+        </div>
+    </div>
+    <script>
+        // This function is used to toggle the password visibility.
+        function togglePassword() {
+            toggleIcon();
+            var x = document.getElementById("password");
+            var y = document.getElementById("confirm_password");
+            if (x.type === "password") {
+                x.type = "text";
+                y.type = "text";
+            } else {
+                x.type = "password";
+                y.type = "password";
+            }
+        }
+        // This function will toggle the show or hide password icon.
+        function toggleIcon() {
+            var x = document.getElementById("show_pass");
+            var y = document.getElementById("hide_pass");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.style.display = "none";
+            } else {
+                x.style.display = "none";
+                y.style.display = "block";
+            }
+        }
+    </script>
+    <script>
+        function validateForm() {
+            var error_message = document.querySelector('.error-message');
+            if (error_message && error_message.innerText !== "") {
+            // If there's an error message, prevent form submission
+            return false;
+            }   
+            var email = document.getElementById("email").value;
+            var contactNumber = document.getElementById("contact_number").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm_password").value;
+    
+            // Email validation
+            var emailRegex = /^[^\d][^\s@]+@[^\s@]+\.[^\s@]+$/;  // Doesn't start with a number
+            if (!emailRegex.test(email)) {
+                document.getElementById("emailError").innerText = "Invalid email address";
+                return false;
+            } else {
+                document.getElementById("emailError").innerText = "";
+            }
+    
+            // Contact number validation
+            var contactNumberRegex = /^[6789][0-9]{9}$/;
+            if (!contactNumberRegex.test(contactNumber)) {
+                document.getElementById("contactNumberError").innerText = "Contact number should be 10 digits and not start with 0";
+                return false;
+            } else {
+                document.getElementById("contactNumberError").innerText = "";
+            }
+    
+            // Password match validation
+            if (password !== confirmPassword) {
+                document.getElementById("passwordMatchError").innerText = "Passwords do not match";
+                return false;
+            } else {
+                document.getElementById("passwordMatchError").innerText = "";
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

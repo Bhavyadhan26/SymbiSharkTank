@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Schedule Your Meeting</title>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+  <!-- css -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" media="screen"> 
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" media="screen">
+  <link rel="stylesheet" href="{% static 'color/default.css' %}" media="screen">
+  <link rel="stylesheet" href="{% static 'meeting.css' %}" media="screen">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+        <a class="navbar-brand" href="/home">SYMBI SHARK TANK</a>
+        <ul class="nav navbar-nav">
+          <li ><a href=/home>Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/success_stories">Success Stories</a></li>
+          <li><a href="/home/#contact">Contact Us</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="/user_profile"> Hey, {{ user.first_name }}</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="/login">SignUp/Login</a></li>
+          {% endif %}
+        </ul>
+      
+    </div>
+  </nav>
+
+  <div class="section-heading">
+    <h2>SCHEDULE YOUR PITCH !</h2>
+    <div class="heading-line"></div>
+    <p></p>
+  </div>
+
+  <form>
+    <h1>Ready to ride the wave? Dive into Symbi's Shark Tank showdown!</h1>
+
+    <!-- Date Calendar -->
+    <div class="calendar">
+      <h2>Select Date:</h2>
+      <input type="date" id="date" name="date" min="2024-03-30" max="2024-04-15">
+    </div>
+
+    <!-- Time Slots -->
+    <div class="timesheet" id="timesheet">
+      <h2>Select Time:</h2>
+      <select id="time">
+        <option value="10:00 AM">10:00 AM</option>
+        <option value="11:00 AM">11:45 AM</option>
+        <option value="12:00 PM">12:00 PM</option>
+        <option value="1:00 PM">1:30 PM</option>
+        <option value="2:00 PM">2:00 PM</option>
+        <option value="3:00 PM">3:30 PM</option>
+      </select>
+    </div>
+
+    <!-- Schedule It Button -->
+    <div class="button-container" id="scheduleButtonContainer" >
+      <button class="schedule-button" onclick="scheduleMeeting()">Schedule It</button>
+    </div>
+  </form>
+
+  <!-- Bottom widget -->
+  <section id="bottom-widget" class="home-section bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="contact-widget wow bounceInLeft">
+            <i class="fa fa-map-marker fa-4x"></i>
+            <h5>Main Office</h5>
+            <p>
+                <a href="https://www.google.com/maps/search/sicsr" target="_blank">SICSR, Chatuhshrungi Rd,<br> Model Colony, Shivajinagar,<br> Pune, Maharashtra 411016 </a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="contact-widget wow bounceInUp">
+            <i class="fa fa-phone fa-4x"></i>
+            <h5>Call</h5>
+            <p>
+                <a href="tel:9681857475">+91-9681857475</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="contact-widget wow bounceInRight">
+            <i class="fa fa-envelope fa-4x"></i>
+            <h5>Email us</h5>
+            <p>
+            <a href="mailto:symbisharktank@gmail.com" >symbisharktank@gmail.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row mar-top30">
+        <div class="col-md-12">
+          <h5>We're on social networks</h5>
+          <ul class="social-network">
+            <li>
+                <a href="https://m.facebook.com/sharktank.india/" target="_blank">
+                <span class="fa-stack fa-2x">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span></a>
+            </li>
+            <li>
+                <a href="https://x.com/sharktankindia?t=0T7tRESAqUhLO5jAwwK41Q&s=09" target="_blank">
+                <span class="fa-stack fa-2x">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>Copyright &copy; SST. All rights reserved.</p>
+          <div class="credits">
+            Designed by JABS
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- Include any JavaScript files or scripts here -->
+  <script>
+    function showTimeSlots() {
+      // Show the timesheet when the button is clicked
+      document.getElementById("timesheet").style.display = "block";
+      // Show the "Schedule It" button
+      document.getElementById("scheduleButtonContainer").style.display = "block";
+    }
+
+    function scheduleMeeting() {
+      var date = document.getElementById('date').value;
+      var time = document.getElementById('time').value;
+
+      // Placeholder for scheduling logic
+      if (date !== "" && time !== "") {
+        alert('Meeting scheduled for ' + date + ' at ' + time);
+        } 
+        else {
+        alert('Please select both date and time for the meeting.');
+    }
+    }
+
+  </script>
+    
+
+  <!-- js -->
+  <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/jquery.scrollTo.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nav.js' %}"></script>
+    <script src="{% static 'js/modernizr.custom.js' %}"></script>
+    <script src="{% static 'js/grid.js' %}"></script>
+    <script src="{% static 'js/stellar.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+
+</body>
+
+</html>

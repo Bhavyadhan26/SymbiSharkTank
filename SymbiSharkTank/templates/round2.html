@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> <!-- Include jQuery Easing Plugin -->
+        <script src="{% static 'round2.js' %}" type="text/javascript"> </script>
+        <link rel="stylesheet" href="{% static 'round2.css' %}">
+    </head>
+<body>
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form method="post" action="{% url 'register2' %}" id="msform" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <!-- progressbar -->
+            <ul id="progressbar">
+                <li class="active">Financial Details</li>
+                <li>Part 2</li>
+                <li>Part 3</li>
+            </ul>
+            <!-- fieldsets -->
+            <fieldset>
+                <h2 class="fs-title">Financial Details</h2>
+                <h3 class="fs-subtitle">Part 1</h3>
+                <input type="text" id= "company_name11" name="company_name11" placeholder="Company Name" value="{{ company_name1 }}" readonly>
+                <input type="text" id= "current_gross_profit_margin" name="current_gross_profit_margin" placeholder="Current Gross Profit Margin"/ required>
+                <input type="text" id= "current_unit_manufacturing_cost" name="current_unit_manufacturing_cost" placeholder="Current Unit Manufacturing Cost"/ required>
+                <input type="text" id= "growth_plan_percentage" name="growth_plan_percentage" placeholder="Growth Plan Percentage"/ required>
+                <button type="button" id="next" name="next" class="next action-button">Next</button>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Financial Details</h2>
+                <h3 class="fs-subtitle">Part 2</h3>
+                <input type="text" id= "outstanding_debt" name="outstanding_debt" placeholder="Outstanding Debt"/ required>
+                <input type="text" id= "current_revenue" name="current_revenue" placeholder="Current Revenue"/ required>
+                <input type="text" id= "projected_revenue" name="projected_revenue" placeholder="Projected Revenue"/ required>
+                <button type="button" id="previous" name="previous" class="previous action-button-previous">Previous</button>
+                <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/> -->
+                <button type="button" id="next" name="next" class="next action-button">Next</button>
+                <!-- <input type="button" id="next" name="next" class="next action-button" value="Next"/> -->
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Financial Details</h2>
+                <h3 class="fs-subtitle"> Part 3</h3>
+                <input type="text" id= "runway" name="runway" placeholder="Runway"/ required>
+                <input type="text" id= "previous_funding_round" name="previous_funding_round" placeholder="previous funding round(Write 0 if none)"/ required>
+                <button type="button" id="previous" name="previous" class="previous action-button-previous">Previous</button>
+                <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/> -->
+                <button type="submit" class="submit action-button">Submit</button>
+            </fieldset>
+        </form>
+            <script>
+             function validateForm() {
+    var valid = true;
+    var inputs = $("#msform input[required]");
+
+    for (var i = 0; i < inputs.length; i++) {
+        if (!$(inputs[i]).val()) {
+            valid = false;
+            break;
+        }
+    }
+
+    if (!valid) {
+        alert("Please fill in all required fields.");
+    }
+
+    return valid;
+}
+             </script>
+    </div>
+</div>
+</body>
+</html>
+
