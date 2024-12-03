@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #fff, #162a48);
+    height: 100vh; /* Ensure full viewport height */
+}
+.main {
+    height: auto; /* Adjust height as needed */
+    width: 350px; /* Set a specific width */
+    padding: 38px;
+    background-color: #162a48;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #fff;
+    text-decoration: underline;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.main h2 {
+    height: 350px;
+    width: auto;
+    padding: 38px;
+    background-color: #162a48;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #fff;
+    text-decoration: underline;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+form div {
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+form label {
+    color: #fff;
+    margin-bottom: 5px;
+}
+form input {
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    outline: none;
+    background-color: #162a48;
+    color: white;
+    padding: 5px;
+}
+form span {
+    color: red;
+    margin-top: 5px;
+}
+button[type="submit"] {
+    height: 40px;
+    width: 120px;
+    background: linear-gradient(to bottom, #2a405f, #2a405f);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+    margin-top: 20px;
+}
+button[type="submit"]:hover {
+    background: linear-gradient(to bottom, #fff, #2a405f);
+    transform: translateY(2px);
+    color: #162a48;
+}
+
+span.error {
+    color: #ff4d4d;
+    font-size: 14px;
+}
+
+.error-message {
+    color: whitesmoke; /* Error message color */
+    font-size: 20px; /* Font size */
+    margin-top: 10px; /* Adjust spacing */
+    text-align: center; /* Center the text */
+}

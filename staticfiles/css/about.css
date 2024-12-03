@@ -1,0 +1,187 @@
+
+@import url('font-awesome.min.css');
+@import url('simpletextrotator.css');
+@import url('overwrite.css');
+@import url('animate.css');
+@import url('style.css');
+
+
+/* ================================
+Team
+================================= */
+.box-team img {
+	height: 350px;
+	width: auto;
+	margin-bottom: 30px;
+}
+
+ 
+/* Team Section */
+ 
+.team {
+    padding: auto;
+    text-align: center;
+}
+ 
+.team h1 {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+ 
+.team-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+ 
+.card {
+    background-color: whitesmoke;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 47rem;
+	width: 35rem;
+    margin-top: 10px;
+	padding: auto;
+}
+ 
+.card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 12px 24px #1b3358;
+}
+ 
+.card-img {
+    width: auto;
+    height: 35rem;
+}
+ 
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+ 
+.card-name {
+    font-size: 25px;
+    margin: 10px 0;
+	text-decoration: underline;
+	text-decoration-color: bisque;
+	font-family: 'Times New Roman', Times, serif;
+}
+ 
+.card-role {
+    font-size: 20px;
+	font-style: italic;
+    margin: 5px 0;
+	font-family: 'Times New Roman', Times, serif;
+}
+ 
+.card-email {
+    font-size: 18px;
+	font-style: oblique;
+    color: #555;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+
+/* =====================
+Block 
+=========================*/
+
+.profile-image img:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 12px 24px #1b3358;
+}
+
+.profile-container-1,
+.profile-container-2 {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 100px;
+}
+
+.profile-container-1 .profile-image,
+.profile-container-2 .profile-image {
+	flex: 2;
+	margin-right: 30px;
+}
+
+.profile-container-1 .profile-image img,
+.profile-container-2 .profile-image img{
+	display: block;
+	height: 35rem;
+	width: 35rem;
+	margin-left: 250px;
+	margin-right: 20px;
+	border: #333;
+	border-width: 10px;
+	margin-bottom: 20px;
+}
+
+.profile-container-1 .profile-content,
+.profile-container-2 .profile-content{
+	flex: 2;
+}
+
+.profile-container-1 .profile.content h2,
+.profile-container-2 .profile.content h2{
+	font-family: 'Times New Roman', Times, serif;
+	text-align: left;
+	font-size: 34px;
+	margin-bottom: 50px;
+	margin-right: 150px;
+}
+
+.profile-container-1 .profile-content p,
+.profile-container-2 .profile-content p{
+	font-family: 'Times New Roman', Times, serif;
+	text-align: left;
+	font-size: 18px;
+	line-height: 2;
+	margin-right: 100px;
+	margin-right: 150px;
+}
+
+
+/*
+.profile-container-2 {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 30px;
+}
+
+.profile-container-2 .profile-image {
+	flex: 2;
+	margin-left: 30px;
+}
+
+.profile-container-2 .profile-image img{
+	display: block;
+	height: 47rem;
+	width: 35rem;
+	margin-right: auto;
+}
+
+.profile-container-2 .profile-content{
+	flex: 2;
+	margin-right: 30px;
+}
+
+.profile-container-2 .profile.content h2{
+	font-family: 'Times New Roman', Times, serif;
+	text-align: center;
+	font-size: 24px;
+	margin-bottom: 20px;
+	margin-left: auto;
+}
+
+.profile-container-2 .profile-content p{
+	font-family: 'Times New Roman', Times, serif;
+	text-align: right;
+	font-size: 18px;
+	line-height: 2;
+	margin-left: auto;
+}

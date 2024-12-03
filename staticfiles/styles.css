@@ -1,0 +1,77 @@
+/* Styles for the switch */
+.switch {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+.toggle-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+  
+  /* Styles for colorblind-friendly mode */
+  .colorblind {
+    /* Example color adjustments for colorblind users */
+    /* You can adjust these colors based on specific colorblindness types */
+  
+    /* Example: Adjust background color */
+    /* background-color: black; */
+  
+    /* Example: Adjust text color */
+    /* color: #333; */
+  
+    /* Example: Adjust link color */
+    /* Ensure links are distinguishable from regular text */
+    /* For example, making links underlined or bold */
+    text-decoration: underline;
+  
+    /* Example: Adjust button colors */
+    /* Ensure buttons have sufficient contrast */
+    /* For example, changing button background and text color */
+  }
+  
