@@ -27,7 +27,7 @@ Follow these steps to get the project up and running on your local machine:
 Clone the repository from GitHub to your local machine:
 
 ```bash
-git clone https://github.com/Bhavyadhan26/Miniproject.git
+git clone https://github.com/Bhavyadhan26/SymbiSharkTank.git
 cd Miniproject
 ```
 ### 2. Install dependencies
